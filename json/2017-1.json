@@ -1,0 +1,52 @@
+{
+	"year" : 2017,
+	"week" : 1,
+	"date" : "Oct 1",
+	"climb" : "Montebello",
+
+	"volunteers" : [
+		"Name Here",
+		"Other Person"
+	],
+
+	"photos" : {
+		"Person Here (Finish Line)" : "LINK HERE"
+	},
+
+	"report" : [
+		"Report paragraph one here.",
+		"Paragraph two here.",
+		"And so on."
+	],
+
+	"results" : {
+		"men" : [
+			{
+				"place" : 1,
+				"name" : "Chase King",
+				"time" : "29:29",
+				"team" : "Team Swift",
+				"category" : "Junior"
+			},
+            {
+				"place" : 2,
+				"name" : "Other name",
+				"time" : "30:12",
+				"team" : "Team Here",
+				"category" : "Category"
+			}
+		],
+
+		"women" : [
+
+		],
+
+        "hybridElectric" : [
+
+        ],
+
+		"men100PointReference" : "34:07",
+		"women100PointReference" : "41:09",
+		"hybridElectric100PointReference" : "19:49"
+	}
+}
