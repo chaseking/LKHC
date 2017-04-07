@@ -51,17 +51,15 @@
             	"results" : {
             		"men" : [
             			{
-            				"place" : 1,
             				"name" : "Chase King",
             				"time" : "29:29",
             				"team" : "Team Swift",
             				"category" : "Junior"
             			},
                         {
-            				"place" : 2,
-            				"name" : "Other name",
+            				"name" : "Rider 1",
             				"time" : "30:12",
-            				"team" : "Team Here",
+            				"team" : "Random Team",
             				"category" : "Category"
             			}
             		],
@@ -72,11 +70,7 @@
 
                     "hybridElectric" : [
 
-                    ],
-
-            		"men100PointReference" : "34:07",
-            		"women100PointReference" : "41:09",
-            		"hybridElectric100PointReference" : "19:49"
+                    ]
             	}
             },
 
@@ -91,31 +85,27 @@
             	"results" : {
             		"men" : [
             			{
-            				"place" : 1,
             				"name" : "Chase King",
             				"time" : "29:29",
             				"team" : "Team Swift",
             				"category" : "Junior"
             			},
                         {
-            				"place" : 2,
-            				"name" : "Other name",
+            				"name" : "Rider 1",
             				"time" : "32:12",
-            				"team" : "Team Here",
+            				"team" : "Random Team",
             				"category" : "Category"
             			},
                         {
-            				"place" : 3,
-            				"name" : "Other name",
+            				"name" : "Rider 2",
             				"time" : "33:12",
-            				"team" : "Team Here",
+            				"team" : "Random Team",
             				"category" : "Category"
             			},
                         {
-            				"place" : 4,
-            				"name" : "Other name",
+            				"name" : "Rider 3",
             				"time" : "34:12",
-            				"team" : "Team Here",
+            				"team" : "Random Team",
             				"category" : "Category"
             			}
             		],
@@ -126,11 +116,7 @@
 
                     "hybridElectric" : [
 
-                    ],
-
-            		"men100PointReference" : "34:07",
-            		"women100PointReference" : "41:09",
-            		"hybridElectric100PointReference" : "19:49"
+                    ]
             	}
             }
         }

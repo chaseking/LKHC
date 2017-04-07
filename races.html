@@ -19,7 +19,13 @@
             <p style="font-size: 14px; text-align: center;"><a class="link light" href="index.html">Low-Key Hillclimbs</a></p>
             <h1 style="text-align: center; margin-top: 0;"><i class="twa twa-clipboard"></i> <strong>Race Info & Results</strong> <i class="twa twa-clipboard"></i></h1>
 
-            <div id="infoSubHeader" style="text-align: center; font-size: 18px;"></div>
+            <div id="infoSubHeader" style="text-align: center; font-size: 18px;">
+                <span><strong><span class="year"></span>: Week <span class="week"></span></strong></span>
+                <span style="margin: 0 5px;">&middot;</span>
+                <span class="date"></span>
+                <span style="margin: 0 5px;">&middot;</span>
+                <span class="climbLink"></span>
+            </div>
 
             <div class="btn-group" style="display: inline-block; position: relative; float: right; top: -100px;">
                 <button id="resultsSelectionButton" type="button" class="btn btn-action dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
@@ -62,13 +68,20 @@
 
                 <div id="resultsContainer"></div>
             </div>
+
+            <div id="leaderboard" class="section border-purple" style="min-width: 85%">
+                <h1>Overall Leaderboard <i class="twa twa-notebook"></i><i class="twa twa-bar-chart"></i> <span style="font-size: 22px; margin-left: 0px; font-style: italic;">As of Week <span class="week"></span>.</span></h1>
+
+                <div id="individualLeaderboardContainer"></div>
+                <div id="teamLeaderboardContainer"></div>
+            </div>
         </div>
 
         <div id="footer">
         	<p>Made with <span style="color: #e74c3c;">&#9829;</span> by <a href="https://www.strava.com/athletes/6093294">Chase King</a> &middot; Source code available on <a href="https://github.com/chaseking/LKHC">GitHub</a>.</p>
         </div>
 
-        <script type="text/javascript" src="js/results.js"></script>
+        <script type="text/javascript" src="js/races.js"></script>
 
         <!-- External JS assets -->
 		<!--
