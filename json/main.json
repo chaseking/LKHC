@@ -1,0 +1,138 @@
+{
+    "climbs" : {
+    	"Montebello" : {
+    		"distanceMiles" : 5.3,
+    		"climbingFeet" : 1940,
+    		"grade" : 6.95,
+    		"stravaSegment" : 627158,
+    		"bikeMapRoute" : 365092,
+            "info" : [ "Information for the climb will go here." ]
+    	},
+
+        "Highway 9" : {
+            "distanceMiles" : 6.7,
+            "climbingFeet" : 2096,
+            "grade" : 6,
+            "stravaSegment" : 611172,
+            "bikeMapRoute" : 777306,
+            "info" : [ "Information coming soon." ]
+    	},
+
+        "Mines Road" : {
+            "info" : [ "Information coming soon." ]
+        }
+    },
+
+    "races" : {
+        "2017" : {
+            "1" : {
+            	"year" : 2017,
+            	"week" : 1,
+            	"date" : "Oct 1",
+            	"climb" : "Montebello",
+                "comment" : "The Climb of October!",
+
+            	"volunteers" : [
+            		"Name Here",
+            		"Other Person"
+            	],
+
+            	"photos" : {
+            		"Person Here (Finish Line)" : "LINK HERE",
+                    "Another Photographer" : "LINK"
+            	},
+
+            	"report" : [
+            		"Report paragraph one here.",
+            		"Paragraph two here.",
+            		"And so on."
+            	],
+
+            	"results" : {
+            		"men" : [
+            			{
+            				"place" : 1,
+            				"name" : "Chase King",
+            				"time" : "29:29",
+            				"team" : "Team Swift",
+            				"category" : "Junior"
+            			},
+                        {
+            				"place" : 2,
+            				"name" : "Other name",
+            				"time" : "30:12",
+            				"team" : "Team Here",
+            				"category" : "Category"
+            			}
+            		],
+
+            		"women" : [
+
+            		],
+
+                    "hybridElectric" : [
+
+                    ],
+
+            		"men100PointReference" : "34:07",
+            		"women100PointReference" : "41:09",
+            		"hybridElectric100PointReference" : "19:49"
+            	}
+            },
+
+            "2" : {
+                "year" : 2017,
+            	"week" : 2,
+            	"date" : "Oct 8",
+            	"climb" : "Highway 9",
+                "comment" : "Fantastic group climb.",
+                "signup" : "https://www.eventbrite.com/e/2016-low-key-hillclimbs-week-7-tunitas-creek-tickets-29195919782",
+
+            	"results" : {
+            		"men" : [
+            			{
+            				"place" : 1,
+            				"name" : "Chase King",
+            				"time" : "29:29",
+            				"team" : "Team Swift",
+            				"category" : "Junior"
+            			},
+                        {
+            				"place" : 2,
+            				"name" : "Other name",
+            				"time" : "32:12",
+            				"team" : "Team Here",
+            				"category" : "Category"
+            			},
+                        {
+            				"place" : 3,
+            				"name" : "Other name",
+            				"time" : "33:12",
+            				"team" : "Team Here",
+            				"category" : "Category"
+            			},
+                        {
+            				"place" : 4,
+            				"name" : "Other name",
+            				"time" : "34:12",
+            				"team" : "Team Here",
+            				"category" : "Category"
+            			}
+            		],
+
+            		"women" : [
+
+            		],
+
+                    "hybridElectric" : [
+
+                    ],
+
+            		"men100PointReference" : "34:07",
+            		"women100PointReference" : "41:09",
+            		"hybridElectric100PointReference" : "19:49"
+            	}
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Test</title>
+
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .box:target {
+            display: block;
+            opacity: 1;
+        }
+        </style>
+	</head>
+
+	<body>
+        <ul>
+            <li><a href="#box1">Box 1</a></li>
+            <li><a href="#box2">Box 2</a></li>
+        </ul>
+
+        <div class="box" id="box1">
+            <h1>THIS IS BOX 1</h1>
+        </div>
+
+        <div class="box" id="box2">
+            <h1>THIS IS BOX 2</h1>
+        </div>
+	</body>
+</html>

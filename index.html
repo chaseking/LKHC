@@ -2,16 +2,14 @@
 
 <html>
 	<head>
-        <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/twemoji.css">
 
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.3.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="js/smoothscrolling.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/smoothscrolling.js"></script>
+        <script type="text/javascript" src="js/utils.js"></script>
 
 		<title>Low-Key Hillclimbs</title>
 	</head>
@@ -24,7 +22,7 @@
                 <h1><i class="twa twa-sunrise-over-mountains"></i> <strong>Low-Key Hillclimbs</strong> <i class="twa twa-sunrise-over-mountains"></i></h1>
 
                 <div class="mini-nav">
-                    <a class="link light" href="results.html">Results</a>
+                    <a class="link light" href="results.html"><strong>Results</strong></a>
                     <a class="link light" href="#schedule">Schedule</a>
                     <a class="link light" href="#climbs">Climb Information</a>
                     <a class="link light" href="#volunteer">Volunteer</a>
@@ -35,33 +33,34 @@
             <p>Welcome to Low-Key Hillclimbs. MORE INFO HERE.</p>
 		</div>
 
-        <div id="schedule" class="section white">
-            <h1><span class="currentYear">???</span> Schedule <i class="twa twa-spiral-calendar"></i></h1>
+        <div id="schedule" class="section border-red">
+            <div class="header">
+                <h1><span class="currentYear">????</span> Schedule <i class="twa twa-spiral-calendar"></i></h1>
+            </div>
 
             <div id="schedule-table"></div>
         </div>
 
-        <div id="climbs" class="section white">
+        <div id="climbs" class="section border-green">
             <div class="header">
-                <h1 style="display: inline;">Climb Information <i class="twa twa-sunrise-over-mountains"></i><i class="twa twa-snow-capped-mountain"></i></h1>
+                <h1 style="display: inline-block;">Climb Information <i class="twa twa-information-source"></i><i class="twa twa-clipboard"></i></h1>
 
-                <div style="float: right;">
-                    <p style="display: inline; font-size: 18px;">Select climb:</p>
+                <div style="position: relative; top: 25px; float: right;">
+                    <p style="display: inline-block; font-size: 18px;">Select climb:</p>
 
                     <div class="btn-group">
                         <button id="climbSelectionButton" type="button" class="btn btn-action dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Loading...</button>
-
                         <ul id="climbSelection" class="dropdown-menu"></ul>
                     </div>
                 </div>
             </div>
 
-            <div id="climbData">Loading...</div>
+            <div id="climbData" style="overflow: hidden;"></div> <!-- Make the div grow to fit children -->
         </div>
 
-        <div id="volunteer" class="section white">
+        <div id="volunteer" class="section border-purple">
             <div class="header">
-                <h1 style="display: inline;">Volunteer <i class="twa twa-happy-person-raising-one-hand-type-4"></i><i class="twa twa-pencil"></i></h1>
+                <h1>Volunteer <i class="twa twa-handshake"></i><i class="twa twa-pencil"></i></h1>
             </div>
 
             <p>Information here.</p>

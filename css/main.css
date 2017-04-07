@@ -23,12 +23,13 @@ a.link:hover {
     border-bottom-color: black;
 }
 
-a.light {
+a.link.light {
     border-bottom: 2px dotted rgba(255, 255, 255, 0.8);
     text-decoration: none;
+    cursor: pointer;
 }
 
-a.light:hover {
+a.link.light:hover {
     border-bottom-color: #95a5a6;
 }
 
@@ -57,7 +58,7 @@ h2 {
     font-size: 16px;
     text-transform: uppercase;
     text-align: center;
-    background: #EBEBEB;
+    background: #bdc3c7;
     color: #3B3738;
     width: 100%;
     border-top-right-radius: 2px;
@@ -68,9 +69,9 @@ h2 {
 	min-width: 70%;
 	max-width: 900px;
     height: auto;
-	padding: 15px 50px;
+	padding: 5px 50px 15px 50px;
 	margin: 15px auto 50px auto; /* In the middle */
-	color: #ecf0f1;
+	color: black;
 	border-radius: 25px;
 	border-style: solid;
 	border-width: 3px;
@@ -80,29 +81,50 @@ h2 {
     margin-bottom: 15px;
 }
 
+.border-red {
+    border-color: #c0392b;
+}
+
+.border-yellow {
+    border-color: #d35400;
+}
+
+.border-purple {
+    border-color: #8e44ad;
+}
+
+.border-green {
+    border-color: #1e8c4d;
+}
+
 .red {
 	background: #e74c3c;
-	border-color: #c0392b;
+    border-color: #c0392b;
+    color: #ecf0f1;
 }
 
 .yellow {
 	background: #f39c12;
 	border-color: #d35400;
+    color: #ecf0f1;
 }
 
 .green {
 	background: #26ad5e;
 	border-color: #1e8c4d;
+    color: #ecf0f1;
 }
 
 .blue {
 	background: #3498db;
 	border-color: #2980b9;
+    color: #ecf0f1;
 }
 
 .purple {
 	background: #9b59b6;
 	border-color: #8e44ad;
+    color: #ecf0f1;
 }
 
 .white {

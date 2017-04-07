@@ -1,34 +1,5 @@
-const MILES_TO_KM = 1.60934;
-const FEET_TO_METERS = 0.3048;
-var climbs;
-var schedule;
-
-$.getJSON("./json/climbs.json", function(json){
-    climbs = json;
-
-    var isSet = false;
-
-    for(var climb in climbs){
-        $("#climbSelection").append(
-            "<li id='climbSelection" + climb + "'><a>" + climb + "</a></li>"
-        );
-
-        $("#climbSelection" + climb).click(setClimb(climb)); //Call function setClimb() when it is clicked
-
-        if(!isSet){
-            setClimb(climb);
-            isSet = true;
-        }
-    }
-});
-
-var table = $("#schedule-table");
-
-table.html("Loading...");
-
-$.getJSON("./json/schedule.json", function(json){
-    schedule = json;
-
+dataCallback = function(){
+    //Schedule
     var biggestYear = 0;
 
     table.html("<table class='table table-hover table-bordered'>"
@@ -43,31 +14,27 @@ $.getJSON("./json/schedule.json", function(json){
         + "<tbody id='schedule-table-body'></tbody>"
     + "</table>");
 
-    for(const keyYear in schedule){
+    for(const keyYear in data.races){
         var year = parseInt(keyYear);
 
-        for(const keyWeek in schedule[keyYear]){
-            const week = schedule[keyYear][keyWeek];
+        for(const keyWeek in data.races[keyYear]){
+            const week = data.races[keyYear][keyWeek];
+            var info;
+
+            if(week.results){
+                info = "<a class='link' href='results.html#" + keyYear + "-" + keyWeek + "'><i class='twa twa-trophy'></i> <span style='font-size: 18px;'>Click to view results.</span></a>";
+            } else if(week.signup){
+                info = "<a class='link' href='" + week.signup + "' target='blank'><i class='twa twa-clipboard'></i> <span style='font-size: 18px; font-weight: bold; color: #e67e22'>Click to sign up!</span></a>";
+            }
 
             $("#schedule-table-body").append(
                 "<tr>"
                   + "<th scope='row'>" + keyWeek + "</th>"
                   + "<td>" + week.date + "</td>"
-                  + "<td><a class='link' href='#climbs' onclick='setClimb('" + week.climb + "')'>" + week.climb + "</a></td>"
-                  + "<td id='infoWeek" + keyWeek + "'></td>"
+                  + "<td><a class='link' href='#climbs' onclick='setClimb('" + week.climb + "', true)'>" + week.climb + "</a></td>"
+                  + "<td>" + info + "</td>"
                 + "</tr>"
             );
-
-            const infoElement = $("#infoWeek" + keyWeek);
-
-            //Check if results file exists
-            $.getJSON("./json/" + keyYear + "-" + keyWeek + ".json", function(json){
-                infoElement.html("<a class='link' href='results.html#" + keyYear + "-" + keyWeek + "'><i class='twa twa-trophy'></i> <span style='font-size: 18px;'>Click to view results.</span></a>");
-            }).fail(function(){
-                if(week.signup){
-                    infoElement.html("<a class='link' href='" + week.signup + "' target='blank'><i class='twa twa-clipboard'></i> <span style='font-size: 18px; font-weight: bold; color: #e67e22'>Click to sign up!</span></a>")
-                }
-            })
         }
 
         if(year > biggestYear){
@@ -78,30 +45,83 @@ $.getJSON("./json/schedule.json", function(json){
     $(".currentYear").each(function(){
         $(this).text(biggestYear);
     })
-});
+
+    //Climb selection
+    var isSet = false;
+
+    for(var climb in data.climbs){
+        $("#climbSelection").append(
+            "<li id='climbs-" + climb + "' onclick='setClimb(\"" + climb + "\")'><a>" + climb + "</a></li>"
+        );
+
+        //$("#climbs-" + climb).click(setClimb(climb)); //Call function setClimb() when it is clicked
+
+        if(hash){
+            if(hash === "climbs-" + climb){
+                setClimb(climb, true);
+            }
+        } else if(!isSet){
+            setClimb(climb);
+            isSet = true;
+        }
+    }
+};
+
+var table = $("#schedule-table");
+
+table.html("Loading...");
 
 var climbData = $("#climbData");
+var currentClimb;
 
-function setClimb(climbName){
+function setClimb(climbName, scroll){
+    if(currentClimb === climbName) return;
+
+    if(scroll){
+        scrollTo($("#climbs"));
+    }
+
+    if(scroll || hash){
+        window.location.hash = "#climbs-" + climbName;
+    }
+
     $("#climbSelectionButton").html(climbName + " <span class=\"caret\"></span>");
 
-    climbData.html("");
+    //Fade out the old one
+    const firstUpdate = !currentClimb;
+    currentClimb = climbName;
 
-    var climb = climbs[climbName];
+    climbData.animate({ opacity: 0, height:'toggle' }, firstUpdate ? 0 : 750, function(){
+        var html = "";
+        var climb = data.climbs[climbName];
 
-    if(climb){
-        climbData.append("<ul style=''>")
-        climbData.append("<li><strong>Distance:</strong> " + climb.distanceMiles + " miles (" + (climb.distanceMiles * MILES_TO_KM) + " km)</li>"); //TODO - Format decimal
-        climbData.append("<li><strong>Elevation gain:</strong> " + climb.climbingFeet + " feet (" + (climb.climbingFeet * FEET_TO_METERS) + " m)</li>");
-        climbData.append("<li><strong>Average grade:</strong> " + climb.grade + "%</li>");
-        climbData.append("<li><a class='link' href='" + climb.stravaSegment + "'>Click to view Strava segment.</a></li>");
+        if(climb){
+            var climbInfo = "<ul style='list-style-type: circle;'>";
+            if(climb.distanceMiles) climbInfo += "<li><strong>Distance:</strong> " + round(climb.distanceMiles, 2) + " miles (" + round(climb.distanceMiles * MILES_TO_KM, 2) + " km)</li>";
+            if(climb.climbingFeet) climbInfo += "<li><strong>Elevation gain:</strong> " + climb.climbingFeet + " feet (" + round(climb.climbingFeet * FEET_TO_METERS, 0) + " m)</li>";
+            if(climb.grade) climbInfo += "<li><strong>Average grade:</strong> " + climb.grade + "%</li>";
+            if(climb.stravaSegment) climbInfo += "<li><a class='link' href='https://www.strava.com/segments/" + climb.stravaSegment + "' target='blank'><i class='twa twa-orange-book'></i> Click to view <strong>Strava</strong> segment.</a></li>";
+            if(climb.bikeMapRoute) climbInfo += "<li><a class='link' href='https://www.bikemap.net/en/route/" + climb.bikeMapRoute + "' target='blank'><i class='twa twa-green-book'></i> Click to view <strong>BikeMap</strong> route.</a></li>";
+            climbInfo += "</ul>";
 
-        if(climb.bikeMapRoute){
-            climbData.append("<li><a class='link' href='" + climb.bikeMapRoute + "'>Click to view BikeMap route.</a></li>");
+            if(climb.info){
+                html += "<div style='display: inline-block; width: 55%'>";
+
+                for(i in climb.info){
+                    html += "<p>" + climb.info[i] + "</p>";
+                }
+
+                html += "</div>";
+                html += "<div style='display: inline-block: width: 40%; float: right'>";
+                html += climbInfo;
+                html += "</div>";
+            } else {
+                html += climbInfo;
+            }
+        } else {
+            html += "<p>No data to display for " + climbName + "! :(</p>";
         }
 
-        climbData.append("</ul>")
-    } else {
-        climbData.append("<h2>No data to display for " + climbName + "! :()</h2>")
-    }
+        climbData.html(html);
+    }).animate({ opacity: 1, height:'toggle' }, firstUpdate ? 0 : 750);
 }
