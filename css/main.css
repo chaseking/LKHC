@@ -69,8 +69,8 @@ h2 {
 	min-width: 70%;
 	max-width: 900px;
     height: auto;
-	padding: 5px 50px 15px 50px;
-	margin: 15px auto 50px auto; /* In the middle */
+	padding: 5px 30px 15px 30px;
+	margin: 15px auto 25px auto; /* In the middle */
 	color: black;
 	border-radius: 25px;
 	border-style: solid;

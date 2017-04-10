@@ -22,7 +22,7 @@ dataCallback = function(){
             var info;
 
             if(week.results){
-                info = "<a class='link' href='results.html#" + keyYear + "-" + keyWeek + "'><i class='twa twa-trophy'></i> <span style='font-size: 18px;'>Click to view results.</span></a>";
+                info = "<a class='link' href='races.html#" + keyYear + "-" + keyWeek + "'><i class='twa twa-trophy'></i> <span style='font-size: 18px;'>Click to view results.</span></a>";
             } else if(week.signup){
                 info = "<a class='link' href='" + week.signup + "' target='blank'><i class='twa twa-clipboard'></i> <span style='font-size: 18px; font-weight: bold; color: #e67e22'>Click to sign up!</span></a>";
             }
